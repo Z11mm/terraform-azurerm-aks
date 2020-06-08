@@ -55,3 +55,8 @@ variable "enable_log_analytics_workspace" {
   description = "Enable the creation of azurerm_log_analytics_workspace and azurerm_log_analytics_solution or not"
   default     = true
 }
+
+variable "vnet_subnet_id" {
+  type = string
+  default = ""
+}
