@@ -12,7 +12,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   dns_prefix          = var.prefix
-  
+
 
   linux_profile {
     admin_username = var.admin_username
@@ -28,7 +28,7 @@ resource "azurerm_kubernetes_cluster" "main" {
     node_count      = var.agents_count
     vm_size         = var.agents_size
     os_disk_size_gb = 50
-    vnet_subnet_id = var.vnet_subnet_id
+    vnet_subnet_id  = var.vnet_subnet_id
   }
 
   service_principal {
