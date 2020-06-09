@@ -58,5 +58,5 @@ variable "enable_log_analytics_workspace" {
 
 variable "vnet_subnet_id" {
   type = string
-  default = ""
+  default = null
 }
