@@ -7,8 +7,13 @@ module "ssh-key" {
   public_ssh_key = var.public_ssh_key == "" ? "" : var.public_ssh_key
 }
 
+locals {
+  aks_name = "${var.prefix}-aks"
+}
+
+
 resource "azurerm_kubernetes_cluster" "main" {
-  name                = "${var.prefix}-aks"
+  name                = local.aks_name
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   dns_prefix          = var.prefix
