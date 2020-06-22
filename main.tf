@@ -35,6 +35,9 @@ resource "azurerm_kubernetes_cluster" "main" {
     client_id     = var.client_id
     client_secret = var.client_secret
   }
+  role_based_access_control {
+    enabled = true
+  }
 
   dynamic addon_profile {
     for_each = var.enable_log_analytics_workspace ? ["log_analytics"] : []
