@@ -60,3 +60,21 @@ variable "vnet_subnet_id" {
   type = string
   default = null
 }
+
+variable "rbac_server_app_id" {
+    default = ""
+    type = string
+}
+variable "rbac_server_app_secret" {
+    default = ""
+    type = string
+}
+variable "rbac_client_app_id" {
+  type = string
+  default = ""
+}
+
+variable "azure_tenant_id" {
+  default = ""
+  type = string
+}

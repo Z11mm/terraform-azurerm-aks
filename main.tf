@@ -42,6 +42,12 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
   role_based_access_control {
     enabled = true
+      azure_active_directory {
+            server_app_id     = var.rbac_server_app_id
+            server_app_secret = var.rbac_server_app_secret
+            client_app_id     = var.rbac_client_app_id
+            tenant_id         = var.azure_tenant_id 
+        }
   }
 
   dynamic addon_profile {
