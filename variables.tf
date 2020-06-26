@@ -78,3 +78,16 @@ variable "azure_tenant_id" {
   default = ""
   type = string
 }
+
+variable "network_plugin" {
+  type = string
+  description = "(optional) Network plugin to use for networking. "
+  default = "azure"
+}
+
+variable "network_policy" {
+  type = string
+  description = "(optional)  Sets up network policy to be used with Azure CNI"
+  default = "azure"
+}
+

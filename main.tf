@@ -40,6 +40,11 @@ resource "azurerm_kubernetes_cluster" "main" {
     client_id     = var.client_id
     client_secret = var.client_secret
   }
+  network_profile {
+    network_plugin = var.network_plugin
+    network_policy =  var.network_policy
+
+  }
   role_based_access_control {
     enabled = true
       azure_active_directory {
