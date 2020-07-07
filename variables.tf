@@ -91,8 +91,3 @@ variable "network_policy" {
   default = "azure"
 }
 
-variable "sku_tier" {
-  type = string
-  description = "(optional) he SKU Tier that should be used for this Kubernetes Cluster."
-  default = "Free"
-}
