@@ -43,22 +43,25 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
   network_profile {
     network_plugin = var.network_plugin
-    network_policy =  var.network_policy
+    network_policy = var.network_policy
 
   }
   role_based_access_control {
     enabled = true
-      azure_active_directory {
-            server_app_id     = var.rbac_server_app_id
-            server_app_secret = var.rbac_server_app_secret
-            client_app_id     = var.rbac_client_app_id
-            tenant_id         = var.azure_tenant_id 
-        }
+    azure_active_directory {
+      server_app_id     = var.rbac_server_app_id
+      server_app_secret = var.rbac_server_app_secret
+      client_app_id     = var.rbac_client_app_id
+      tenant_id         = var.azure_tenant_id
+    }
   }
 
   dynamic addon_profile {
     for_each = var.enable_log_analytics_workspace ? ["log_analytics"] : []
     content {
+      kube_dashboard {
+        enabled = var.kube_dashboard_enabled
+      }
       oms_agent {
         enabled                    = true
         log_analytics_workspace_id = azurerm_log_analytics_workspace.main[0].id
@@ -94,5 +97,3 @@ resource "azurerm_log_analytics_solution" "main" {
     product   = "OMSGallery/ContainerInsights"
   }
 }
-
-

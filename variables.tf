@@ -57,37 +57,42 @@ variable "enable_log_analytics_workspace" {
 }
 
 variable "vnet_subnet_id" {
-  type = string
+  type    = string
   default = null
 }
 
 variable "rbac_server_app_id" {
-    default = ""
-    type = string
+  default = ""
+  type    = string
 }
 variable "rbac_server_app_secret" {
-    default = ""
-    type = string
+  default = ""
+  type    = string
 }
 variable "rbac_client_app_id" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "azure_tenant_id" {
   default = ""
-  type = string
+  type    = string
 }
 
 variable "network_plugin" {
-  type = string
+  type        = string
   description = "(optional) Network plugin to use for networking. "
-  default = "azure"
+  default     = "azure"
 }
 
 variable "network_policy" {
-  type = string
+  type        = string
   description = "(optional)  Sets up network policy to be used with Azure CNI"
-  default = "azure"
+  default     = "azure"
 }
 
+variable "kube_dashboard_enabled" {
+  type        = bool
+  default     = true
+  description = "(Optional) Is the Kubernetes Dashboard enabled?"
+}
