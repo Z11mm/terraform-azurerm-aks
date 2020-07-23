@@ -96,3 +96,9 @@ variable "kube_dashboard_enabled" {
   default     = true
   description = "(Optional) Is the Kubernetes Dashboard enabled?"
 }
+
+variable "private_cluster_enabled" {
+  description = "Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to false. Changing this forces a new resource to be created."
+  type = bool
+  default = false
+}
