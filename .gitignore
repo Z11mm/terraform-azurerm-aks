@@ -1,6 +1,3 @@
-# Variable files
-terraform.tfvars
-
 ### https://raw.github.com/github/gitignore/abad92dac5a4306f72242dae3bca6e277bce3615/Terraform.gitignore
 
 # Compiled files
@@ -48,3 +45,27 @@ Gemfile.lock
 
 # SSH Key
 private_ssh_key
+
+
+**/inspec.lock
+*.gem
+eks-admin-cluster-role-binding.yaml
+eks-admin-service-account.yaml
+.idea/
+*.iml
+config-map-aws-auth*.yaml
+kubeconfig_*
+*.swp
+
+# Local .terraform directories
+**/.terraform/*
+
+# Terraform lockfile
+.terraform.lock.hcl
+
+#  Crash log files
+crash.log
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
